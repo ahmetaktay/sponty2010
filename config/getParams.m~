@@ -1,0 +1,96 @@
+function params = getParams
+% function params = getParams
+%
+%   Various configuration variables for the task
+%
+
+    params.basepath = fileparts(pwd);
+
+    %% EEG Specific
+    
+    samplingRate = 250; % Hz
+    
+    % EEG trigger setting
+    params.eeg.fixHeader = 1;
+    interSample = 1/samplingRate;
+    params.eeg.interSample = interSample*1.5;
+    
+    % EEG trigger keys
+    params.eeg.start = 255;
+    params.eeg.stop = 253;
+    params.eeg.blockStart = 101;
+    params.eeg.blockEnd = 102;
+    params.eeg.calibrateStart = 111;
+    params.eeg.calibrateEnd = 112;
+    params.eeg.startTrial = 11;
+    %%% stimuli/response specific
+    params.eeg.target = 21;
+    params.eeg.noTarget = 22;
+    params.eeg.correct = 31;
+    params.eeg.incorrect = 32;
+    params.eeg.noResponse = 33;
+    
+    
+    %% Task Stuff
+    
+    params.percentNonTarget = 0.2;
+    params.numBlocks = 4;
+    params.numTrialsPerBlock = 36;
+    
+    % Stimuli Config
+    params.stimuli.fgContrast = 0.03;
+    params.stimuli.bgContrast = 0.5;    % range is 0-1
+    params.stimuli.radius = 200;    % in pixels
+    params.stimuli.outerRadius = 140;   % in pixels
+    params.stimuli.outerFixationSize = 10; % in pixels
+    params.stimuli.innerFixationSize = 4; % in pixels
+    params.stimuli.pixelsPerPeriod = 33; % How many pixels will each period/cycle occupy?
+    %%% if have auditory cue
+    params.stimuli.beep = 0.5 * tukeywin(199,10) .* transpose(sin(1:0.5:100));
+    
+    % Stimuli Timing Settings
+    params.timing.ITI = 1.5; % average number of seconds to wait till start of next trial
+    params.timing.ITIjitterRange = 0.25; % range in seconds
+    params.timing.stimulusDuration = 0.007;  % seconds
+    params.timing.responseTime = 3;  % seconds given to respond
+    params.timing.breakTime = 60; % minimum number of seconds between blocks as break
+    %%% if have auditory cue
+    params.timing.cueDuration = 0.1; % seconds that auditory cue is presented
+    params.timing.startTime = 1.0;  % wait on average this many seconds before showing stimulus
+    % params.startJitterRange = 0.5; % +/- number of seconds to jitter starting of stimulus
+    params.timing.startJitterSet = [0.2 0.4 0.6 0.8 1.0]; % set of +/- number of seccond of jitter to pick randomly from
+    
+    % Instructions/Text
+    params.instructions.one = 'Focus on the square in the center for the whole time. \nPress j if you see the pattern and k if you do not. \nPress any key to continue.';
+    params.instructions.two = 'Focus on the center square and do not blink too much! \nEspecially after hearing the beep.';
+    params.instructions.focus = 'Try to stay awake! \nI know it is hard (sorry). \nYou can do it!';
+    params.instructions.wrap = 30;
+    params.instructions.fontSize = 60;
+    
+    % Key Response
+    params.response.yes = 'j';
+    params.response.no = 'k';
+    
+    %% Practice Settings
+    params.practice.feedbackDur = 1;
+    params.practice.numTrials = 8;
+    
+    %% Staircase stuff
+    
+    % One-Up One-Down Settings
+    params.staircase.maxContrast = 0.3;
+    params.staircase.minContrast = 0.001;
+    params.staircase.maxTrials = 60;
+    
+    % Quest Settings
+    params.quest.startContrast = 0.03;
+    params.quest.startVariance = 3;
+    params.quest.pThreshold = 0.63;   % this should correspond to 1 up and 1 down or 50% threshold
+    params.quest.numRecalibrateTrials = 18;
+    
+    
+    %% Other
+    
+    params.screenNum = 0;
+    params.subjectID = 0;   % ID=0 => nothing is recorded
+    
