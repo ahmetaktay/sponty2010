@@ -122,7 +122,7 @@ function history = phasebeat_trial(params, history, nTrial, percentNoTarget, isT
     %%% Draw text centered on screen
     DrawFormattedText(params.wPtr, WrapString('?', params.txt.wrap), 'center', 'center');
     %%% Display text
-    startResponseTime = Screen('Flip', params.wPtr, startStimulusTime + params.timing.stimulusDuration + params.timing.responseStart);
+    startResponseTime = Screen('Flip', params.wPtr, elapsedTime + params.timing.trialDuration);
     %%% Return textsize to normal
     Screen('TextSize', params.wPtr, oldTextSize);
 
@@ -142,7 +142,7 @@ function history = phasebeat_trial(params, history, nTrial, percentNoTarget, isT
     % Take away question mark and replace with fixation
     Screen('FillRect', params.wPtr, params.disp.white*params.disp.bgContrast);
     Screen('DrawTexture', params.wPtr, params.stim.fixation);
-    Screen('Flip', params.wPtr, startStimulusTime + params.timing.responseTime);
+    Screen('Flip', params.wPtr, startResponseTime + params.timing.responseTime);
     
     if nTrial > 1
         history.timing.actualITI = [history.timing.actualITI, max(startStimulusTime-history.timing.endTrial(nTrial-1), 0)];

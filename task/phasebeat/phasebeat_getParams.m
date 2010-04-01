@@ -35,8 +35,7 @@ function params = phasebeat_getParams(params)
     % Stimuli Timing Settings
     params.timing.intertrialSet = [2.05 2.0 1.95]; % range in seconds
     params.timing.stimulusDuration = 0.007;  % seconds
-    params.timing.responseStartSet = [0.2]; % range in seconds
-	params.timing.responseStart = 0.2;
+	params.timing.trialDuration = 2.2;
     params.timing.responseTime = 2;  % seconds given to respond
     
     params.timing.sectionBreak = 30;
