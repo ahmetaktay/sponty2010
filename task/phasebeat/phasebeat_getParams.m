@@ -33,12 +33,12 @@ function params = phasebeat_getParams(params)
     % Actual Stimuli
     
     % Stimuli Timing Settings
-    params.timing.intertrialSet = [2.05 2.0 1.95]; % range in seconds
-    params.timing.stimulusDuration = 0.007;  % seconds
-	params.timing.trialDuration = 2.2;
-    params.timing.responseTime = 2;  % seconds given to respond
+    params.timing.intertrialSet = [2.05 2.0 1.95]; % range in seconds. largest becomes long, shortest becomes short, anything else is control
+    params.timing.stimulusDuration = 0.007;  % seconds. .007 will hopefully display exactly one refresh rate
+	params.timing.trialDuration = 2.2; % seconds of fixation period (total until qmark, including stimulus showing up & after)
+    params.timing.responseTime = 2;  % seconds given to respond (after which ? disappears and trial ends)
     
-    params.timing.sectionBreak = 30;
+    params.timing.sectionBreak = 30; % seconds with + on the screen for participant to rest
     params.timing.blockBreak = 30; % minimum number of seconds between blocks as break
     
     
