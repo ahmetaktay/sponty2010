@@ -4,7 +4,7 @@ function params = phasebeat_getParams(params)
     params.taskSet.numBlocks = 1;
     params.taskSet.numBlockSections = 3;
     params.taskSet.numTrialsPerSection = 50;
-    
+    params.taskSet.percentNonTarget = 0.2;
     % Instructions/Text
     params.instructions = {};
     params.instructions{1} = 'Focus on the square in the center for the whole time. \nPress j if you see a pattern and k if you do not. \nPress any key to continue.';
