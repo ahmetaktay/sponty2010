@@ -1,10 +1,10 @@
 function history = phasebeat(params, history)
     
     % Calibrate
-    % [params, history] = calibrate(params, history);
-    % calTrial = length(history.calibration.trial.response) + 1;
-    % params.quest.numTrials = round(params.quest.numTrials/2);
-    % blockBreak(params, params.calibrate.breakTime);
+    [params, history] = calibrate(params, history);
+    calTrial = length(history.calibration.trial.response) + 1;
+    params.quest.numTrials = round(params.quest.numTrials/2);
+    blockBreak(params, params.calibrate.breakTime);
     
     % Task!
     nTrial = 1;

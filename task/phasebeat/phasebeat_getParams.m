@@ -2,7 +2,7 @@ function params = phasebeat_getParams(params)
 % function params = slowvision3_getParams(params)
     
     params.taskSet.numBlocks = 1;
-    params.taskSet.numBlockSections = 3;
+    params.taskSet.numBlockSections = 5;
     params.taskSet.numTrialsPerSection = 50;
     params.taskSet.percentNonTarget = 0.2;
     % Instructions/Text
